@@ -1,0 +1,25 @@
+export default {
+  async fetch(request, env) {
+    const bucket = env.BUCKET_NAME;
+    const key = env.OBJECT_KEY;
+    const region = env.REGION || "ap-south-1";
+
+    const fileUrl = `https://${bucket}.s3.${region}.amazonaws.com/${encodeURIComponent(key)}`;
+
+    const s3Response = await fetch(fileUrl);
+
+    if (!s3Response.ok) {
+      return new Response(`S3 Error: ${s3Response.status} ${s3Response.statusText}`, {
+        status: s3Response.status,
+      });
+    }
+
+    // Display image inline
+    return new Response(s3Response.body, {
+      headers: {
+        "Content-Type": "image/jpeg",
+        "Content-Disposition": "inline"
+      }
+    });
+  }
+};
