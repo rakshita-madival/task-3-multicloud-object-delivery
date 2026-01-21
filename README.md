@@ -55,3 +55,5 @@ Delivery tested through Cloudflare’s global network
 📍 Outcome
 
 Successfully delivered S3-hosted image directly through Cloudflare, demonstrating cloud interoperability, performance optimization, and serverless delivery.
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/7d8125ac-93e1-49f5-8375-6fdc2a146a10" />
